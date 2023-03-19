@@ -47,19 +47,19 @@ function App() {
         sx={{
           height: '50px',
           padding: '16px',
-          width: '1280px',
         }}
       >
         <Box component='img' sx={{ height: '100%' }} src={AppIcon} alt='app icon' />
       </Box>
-      <Box
-        component='main'
-        sx={{
-          width: '1280px',
-        }}
-      >
+      <Box component='main'>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange}>
+          <Tabs
+            value={value}
+            variant='scrollable'
+            scrollButtons='auto'
+            sx={{ maxWidth: '900px' }}
+            onChange={handleChange}
+          >
             <Tab label='Overview' />
             <Tab label='Loans' />
             <Tab label='Credit Cards' />
