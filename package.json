@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "tsc && vite build",
+    "prettier": "prettier --config prettier.config.cjs --write './**/*.{js,jsx,json,ts,tsx}'",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,9 +18,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "prettier": "^2.8.4",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
   }

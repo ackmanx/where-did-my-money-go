@@ -1,37 +1,32 @@
-import './App.css'
-import React, { useEffect, useState, SyntheticEvent } from "react";
-import AppIcon from './app-icon.png'
+import { Box, Tab, Tabs, Typography } from '@mui/material'
 import JSON5 from 'json5'
-import { Tab, Tabs, Box, Typography } from "@mui/material";
+import React, { SyntheticEvent, useEffect, useState } from 'react'
+
+import './App.css'
+import AppIcon from './app-icon.png'
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
+  children?: React.ReactNode
+  index: number
+  value: number
 }
 
-
 function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      {...other}
-    >
+    <div role='tabpanel' hidden={value !== index} id={`simple-tabpanel-${index}`} {...other}>
       {value === index && (
         <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
     </div>
-  );
+  )
 }
 
 function App() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
     async function getJson() {
@@ -43,27 +38,25 @@ function App() {
   }, [])
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
-
+    setValue(newValue)
+  }
 
   return (
     <div>
       <header>
-        <img src={AppIcon} alt='app icon'/>
+        <img src={AppIcon} alt='app icon' />
       </header>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>
-          <Tab label="Overview"  />
-          <Tab label="Loans" />
-          <Tab label="Credit Cards" />
-          <Tab label="Subscriptions" />
-          <Tab label="Utilities" />
-          <Tab label="Healthcare" />
-          <Tab label="People" />
-          <Tab label="Investment" />
-          <Tab label="Misc" />
+          <Tab label='Overview' />
+          <Tab label='Loans' />
+          <Tab label='Credit Cards' />
+          <Tab label='Subscriptions' />
+          <Tab label='Utilities' />
+          <Tab label='Healthcare' />
+          <Tab label='People' />
+          <Tab label='Investment' />
+          <Tab label='Misc' />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
