@@ -1,5 +1,6 @@
 import './App.css'
 import { useEffect } from "react";
+import AppIcon from './app-icon.png'
 
 function App() {
   useEffect(() => {
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <div>
-      hello world
+      <img src={AppIcon} alt='app icon'/>
     </div>
   )
 }
