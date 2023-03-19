@@ -2,7 +2,6 @@ import { Box, Tab, Tabs, Typography } from '@mui/material'
 import JSON5 from 'json5'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 
-import './App.css'
 import AppIcon from './app-icon.png'
 
 interface TabPanelProps {
@@ -42,51 +41,65 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
-        <img src={AppIcon} alt='app icon' />
-      </header>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange}>
-          <Tab label='Overview' />
-          <Tab label='Loans' />
-          <Tab label='Credit Cards' />
-          <Tab label='Subscriptions' />
-          <Tab label='Utilities' />
-          <Tab label='Healthcare' />
-          <Tab label='People' />
-          <Tab label='Investment' />
-          <Tab label='Misc' />
-        </Tabs>
+    <Box component='main' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box
+        component='header'
+        sx={{
+          height: '50px',
+          padding: '16px',
+          width: '1280px',
+        }}
+      >
+        <Box component='img' sx={{ height: '100%' }} src={AppIcon} alt='app icon' />
       </Box>
-      <TabPanel value={value} index={0}>
-        Overview
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Loans
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Credit Cards
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Subscriptions
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Utilities
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Healthcare
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        People
-      </TabPanel>
-      <TabPanel value={value} index={7}>
-        Investment
-      </TabPanel>
-      <TabPanel value={value} index={8}>
-        Misc
-      </TabPanel>
-    </div>
+      <Box
+        component='main'
+        sx={{
+          width: '1280px',
+        }}
+      >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange}>
+            <Tab label='Overview' />
+            <Tab label='Loans' />
+            <Tab label='Credit Cards' />
+            <Tab label='Subscriptions' />
+            <Tab label='Utilities' />
+            <Tab label='Healthcare' />
+            <Tab label='People' />
+            <Tab label='Investment' />
+            <Tab label='Misc' />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          Overview
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Loans
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Credit Cards
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          Subscriptions
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          Utilities
+        </TabPanel>
+        <TabPanel value={value} index={5}>
+          Healthcare
+        </TabPanel>
+        <TabPanel value={value} index={6}>
+          People
+        </TabPanel>
+        <TabPanel value={value} index={7}>
+          Investment
+        </TabPanel>
+        <TabPanel value={value} index={8}>
+          Misc
+        </TabPanel>
+      </Box>
+    </Box>
   )
 }
 
