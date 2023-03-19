@@ -14,9 +14,9 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <header>
       <img src={AppIcon} alt='app icon'/>
-    </div>
+    </header>
   )
 }
 
