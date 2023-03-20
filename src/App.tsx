@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, Typography } from '@mui/material'
+import { Box, Tab, Tabs } from '@mui/material'
 import JSON5 from 'json5'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 
@@ -11,19 +11,26 @@ interface TabPanelProps {
   value: number
 }
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props
+function TabBody(props: TabPanelProps) {
+  const { children, value, index } = props
 
-  return (
-    <div role='tabpanel' hidden={value !== index} id={`simple-tabpanel__${index}`} {...other}>
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  )
+  if (value !== index) {
+    return null
+  }
+
+  return <Box sx={{ p: 3 }}>{children}</Box>
 }
+
+const tabToPageMap = [
+  'Overview',
+  'Loans',
+  'Credit Cards',
+  'Subscriptions',
+  'Utilities',
+  'People',
+  'Investment',
+  'Misc',
+]
 
 function App() {
   const [currentTabIndex, setCurrentTabIndex] = useState(0)
@@ -41,17 +48,6 @@ function App() {
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setCurrentTabIndex(newValue)
   }
-
-  const TABS = [
-    'Overview',
-    'Loans',
-    'Credit Cards',
-    'Subscriptions',
-    'Utilities',
-    'People',
-    'Investment',
-    'Misc',
-  ]
 
   return (
     <Box component='main' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -74,16 +70,16 @@ function App() {
             sx={{ maxWidth: '900px' }}
             onChange={handleChange}
           >
-            {TABS.map((tab) => (
+            {tabToPageMap.map((tab) => (
               <Tab key={tab} label={tab} />
             ))}
           </Tabs>
         </Box>
 
-        {TABS.map((tab, index) => (
-          <TabPanel value={currentTabIndex} index={index}>
+        {tabToPageMap.map((tab, index) => (
+          <TabBody key={tab} value={currentTabIndex} index={index}>
             {tab}
-          </TabPanel>
+          </TabBody>
         ))}
       </Box>
     </Box>
