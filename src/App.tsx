@@ -21,15 +21,15 @@ function TabBody(props: TabPanelProps) {
   return <Box sx={{ p: 3 }}>{children}</Box>
 }
 
-const tabToPageMap = [
-  'Overview',
-  'Loans',
-  'Credit Cards',
-  'Subscriptions',
-  'Utilities',
-  'People',
-  'Investment',
-  'Misc',
+const pages = [
+  { name: 'Overview', component: null },
+  { name: 'Loans', component: null },
+  { name: 'Credit Cards', component: null },
+  { name: 'Subscriptions', component: null },
+  { name: 'Utilities', component: null },
+  { name: 'People', component: null },
+  { name: 'Investment', component: null },
+  { name: 'Misc', component: null },
 ]
 
 function App() {
@@ -45,8 +45,8 @@ function App() {
     getJson()
   }, [])
 
-  const handleChange = (event: SyntheticEvent, newValue: number) => {
-    setCurrentTabIndex(newValue)
+  const handleChange = (event: SyntheticEvent, newTabIndex: number) => {
+    setCurrentTabIndex(newTabIndex)
   }
 
   return (
@@ -70,15 +70,15 @@ function App() {
             sx={{ maxWidth: '900px' }}
             onChange={handleChange}
           >
-            {tabToPageMap.map((tab) => (
-              <Tab key={tab} label={tab} />
+            {pages.map(({ name }) => (
+              <Tab key={name} label={name} />
             ))}
           </Tabs>
         </Box>
 
-        {tabToPageMap.map((tab, index) => (
-          <TabBody key={tab} value={currentTabIndex} index={index}>
-            {tab}
+        {pages.map(({ name }, index) => (
+          <TabBody key={name} value={currentTabIndex} index={index}>
+            {name}
           </TabBody>
         ))}
       </Box>
