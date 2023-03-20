@@ -4,6 +4,7 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 
 import AppIcon from './app-icon.png'
 import { MoneyResponse } from './money-api-types'
+import { Loans } from './pages/Loans'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -22,8 +23,8 @@ function TabBody(props: TabPanelProps) {
 }
 
 const pages = [
-  { name: 'Overview', component: null },
-  { name: 'Loans', component: null },
+  { name: 'Overview', component: <h1>hello overview</h1> },
+  { name: 'Loans', component: <Loans /> },
   { name: 'Credit Cards', component: null },
   { name: 'Subscriptions', component: null },
   { name: 'Utilities', component: null },
@@ -76,9 +77,9 @@ function App() {
           </Tabs>
         </Box>
 
-        {pages.map(({ name }, index) => (
+        {pages.map(({ name, component }, index) => (
           <TabBody key={name} value={currentTabIndex} index={index}>
-            {name}
+            {component}
           </TabBody>
         ))}
       </Box>
