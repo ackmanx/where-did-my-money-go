@@ -4,6 +4,7 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 
 import AppIcon from './app-icon.png'
 import { MoneyResponse } from './money-api-types'
+import { CreditCards } from './pages/CreditCards'
 import { Loans } from './pages/Loans'
 
 interface TabPanelProps {
@@ -22,25 +23,25 @@ function TabBody(props: TabPanelProps) {
   return <Box sx={{ p: 3 }}>{children}</Box>
 }
 
-const pages = [
-  { name: 'Overview', component: <h1>hello overview</h1> },
-  { name: 'Loans', component: <Loans /> },
-  { name: 'Credit Cards', component: null },
-  { name: 'Subscriptions', component: null },
-  { name: 'Utilities', component: null },
-  { name: 'People', component: null },
-  { name: 'Investment', component: null },
-  { name: 'Misc', component: null },
-]
-
 function App() {
   const [currentTabIndex, setCurrentTabIndex] = useState(0)
+  const [moneyData, setMoneyData] = useState<MoneyResponse>()
+
+  const pages = [
+    { name: 'Overview', component: <h1>hello overview</h1> },
+    { name: 'Loans', component: <Loans loans={moneyData?.loans} /> },
+    { name: 'Credit Cards', component: <CreditCards cards={moneyData?.creditCards} /> },
+    { name: 'Subscriptions', component: null },
+    { name: 'Utilities', component: null },
+    { name: 'People', component: null },
+    { name: 'Investment', component: null },
+    { name: 'Misc', component: null },
+  ]
 
   useEffect(() => {
     async function getJson() {
       const response = await fetch('https://ackmanx.github.io/json/money.json5')
-      const x: MoneyResponse = JSON5.parse(await response.text())
-      console.log(777, x)
+      setMoneyData(JSON5.parse(await response.text()))
     }
 
     getJson()
