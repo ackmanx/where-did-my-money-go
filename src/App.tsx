@@ -6,6 +6,7 @@ import AppIcon from './app-icon.png'
 import { MoneyResponse } from './money-api-types'
 import { CreditCards } from './pages/CreditCards'
 import { Loans } from './pages/Loans'
+import { getQueryParam, setQueryParam } from './utils'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -24,7 +25,7 @@ function TabBody(props: TabPanelProps) {
 }
 
 function App() {
-  const [currentTabIndex, setCurrentTabIndex] = useState(0)
+  const [currentTabIndex, setCurrentTabIndex] = useState(getQueryParam('tabIndex') ?? 0)
   const [moneyData, setMoneyData] = useState<MoneyResponse>()
 
   const pages = [
@@ -48,6 +49,7 @@ function App() {
   }, [])
 
   const handleChange = (event: SyntheticEvent, newTabIndex: number) => {
+    setQueryParam('tabIndex', newTabIndex)
     setCurrentTabIndex(newTabIndex)
   }
 
