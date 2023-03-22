@@ -31,7 +31,12 @@ export const Loans = ({ loans }: Props) => {
                   borderRadius: '15px',
                 }}
               >
-                <Typography>${loan.amount === -1 ? '??' : loan.amount}</Typography>
+                <Typography>
+                  ${loan.amount === -1 ? '??' : loan.amount}
+                  <Box component='span' sx={{ fontSize: 12 }}>
+                    /mo
+                  </Box>
+                </Typography>
               </Box>
             </Box>
           </Grid2>
