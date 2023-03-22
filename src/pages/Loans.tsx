@@ -18,11 +18,18 @@ export const Loans = ({ loans }: Props) => {
             <Box>
               <Typography variant='h6'>{loan.name}</Typography>
               <Typography variant='overline'>{loan.bank}</Typography>
-              <Typography>{loan.apr}</Typography>
               <Typography>{loan.creditReportName}</Typography>
-              <Typography>{loan.website}</Typography>
+              <Typography>
+                <a href={loan.website}>{loan.website}</a>
+              </Typography>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
               <Box
                 sx={{
                   backgroundColor: '#479b5f',
@@ -38,6 +45,7 @@ export const Loans = ({ loans }: Props) => {
                   </Box>
                 </Typography>
               </Box>
+              <Typography sx={{ fontSize: 14, pt: 0.5 }}>{loan.apr}%</Typography>
             </Box>
           </Grid2>
           <Box sx={{ borderTop: '1px solid rgba(0, 0, 0, 0.12)', mt: 2, pt: 2 }}>
