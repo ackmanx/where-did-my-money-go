@@ -10,6 +10,8 @@ interface Props {
 export const Loans = ({ loans }: Props) => {
   if (!loans) return null
 
+  const websitePrettyRegex = /(https?:\/\/(www.)?)/
+
   return (
     <Stack spacing={2}>
       {loans.map((loan) => (
@@ -22,7 +24,7 @@ export const Loans = ({ loans }: Props) => {
                   <Typography variant='overline'>Bank</Typography>
                   <Typography>{loan.bank}</Typography>
                   <Typography>
-                    <a href={loan.website}>{loan.website}</a>
+                    <a href={loan.website}>{loan.website.replace(websitePrettyRegex, '')}</a>
                   </Typography>
                 </Box>
                 {loan.creditReportName && (
