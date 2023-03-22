@@ -17,19 +17,24 @@ export const Loans = ({ loans }: Props) => {
           <Grid2 container justifyContent='space-between'>
             <Box>
               <Typography variant='h6'>{loan.name}</Typography>
-              <Typography variant='overline'>{loan.bank}</Typography>
-              <Typography>{loan.creditReportName}</Typography>
-              <Typography>
-                <a href={loan.website}>{loan.website}</a>
-              </Typography>
+              <Grid2 container gap={3}>
+                <Box sx={{ width: '300px' }}>
+                  <Typography variant='overline'>Bank</Typography>
+                  <Typography>{loan.bank}</Typography>
+                  <Typography>
+                    <a href={loan.website}>{loan.website}</a>
+                  </Typography>
+                </Box>
+                {loan.creditReportName && (
+                  <Box sx={{ mb: 1 }}>
+                    <Typography variant='overline'>Credit Report Name</Typography>
+                    <Typography>{loan.creditReportName}</Typography>
+                  </Box>
+                )}
+              </Grid2>
             </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
+
+            <Grid2 container flexDirection='column' alignItems='center'>
               <Box
                 sx={{
                   backgroundColor: '#479b5f',
@@ -46,12 +51,15 @@ export const Loans = ({ loans }: Props) => {
                 </Typography>
               </Box>
               <Typography sx={{ fontSize: 14, pt: 0.5 }}>{loan.apr}%</Typography>
-            </Box>
+            </Grid2>
           </Grid2>
-          <Box sx={{ borderTop: '1px solid rgba(0, 0, 0, 0.12)', mt: 2, pt: 2 }}>
-            <Typography variant='overline'>Notes</Typography>
-            <Typography>{loan.notes}</Typography>
-          </Box>
+
+          {loan.notes && (
+            <Box sx={{ borderTop: '1px solid rgba(0, 0, 0, 0.12)', mt: 2, pt: 2 }}>
+              <Typography variant='overline'>Notes</Typography>
+              <Typography>{loan.notes}</Typography>
+            </Box>
+          )}
         </Paper>
       ))}
     </Stack>
