@@ -45,14 +45,18 @@ export const Loans = ({ loans }: Props) => {
                   borderRadius: '15px',
                 }}
               >
-                <Typography>
-                  ${loan.amount === -1 ? '??' : loan.amount}
-                  <Box component='span' sx={{ fontSize: 12 }}>
-                    /mo
-                  </Box>
-                </Typography>
+                {loan.amount !== -1 && (
+                  <Typography>
+                    ${loan.amount}
+                    <Box component='span' sx={{ fontSize: 12 }}>
+                      /mo
+                    </Box>
+                  </Typography>
+                )}
               </Box>
-              <Typography sx={{ fontSize: 14, pt: 0.5 }}>{loan.apr}%</Typography>
+              {loan.apr !== -1 && (
+                <Typography sx={{ fontSize: 14, pt: 0.5 }}>{loan.apr}%</Typography>
+              )}
             </Grid2>
           </Grid2>
 
