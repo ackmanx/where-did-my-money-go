@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 import Grid2 from '@mui/material/Unstable_Grid2'
 
 import { CreditCard } from '../money-api-types'
@@ -13,9 +13,9 @@ export const CreditCards = ({ cards }: Props) => {
   const websitePrettyRegex = /(https?:\/\/(www.)?)/
 
   return (
-    <Stack spacing={2}>
+    <Grid2 container justifyContent='center' spacing={2} data-id='credit-cards-page'>
       {cards.map((card) => (
-        <Paper key={card.name} sx={{ p: 2 }}>
+        <Paper key={card.name} sx={{ m: 2, p: 2, width: 380 }}>
           <Grid2 container justifyContent='space-between'>
             <Box>
               <Typography variant='h6'>{card.name}</Typography>
@@ -43,6 +43,6 @@ export const CreditCards = ({ cards }: Props) => {
           )}
         </Paper>
       ))}
-    </Stack>
+    </Grid2>
   )
 }

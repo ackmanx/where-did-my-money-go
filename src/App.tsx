@@ -1,28 +1,13 @@
 import { Box, Tab, Tabs } from '@mui/material'
+import Grid2 from '@mui/material/Unstable_Grid2'
 import JSON5 from 'json5'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, { Fragment, SyntheticEvent, useEffect, useState } from 'react'
 
 import AppIcon from './app-icon.png'
 import { MoneyResponse } from './money-api-types'
 import { CreditCards } from './pages/CreditCards'
 import { Loans } from './pages/Loans'
 import { getQueryParam, setQueryParam } from './utils'
-
-interface TabPanelProps {
-  children?: React.ReactNode
-  index: number
-  value: number
-}
-
-function TabBody(props: TabPanelProps) {
-  const { children, value, index } = props
-
-  if (value !== index) {
-    return null
-  }
-
-  return <Box sx={{ p: 3 }}>{children}</Box>
-}
 
 function App() {
   const [currentTabIndex, setCurrentTabIndex] = useState(getQueryParam('tabIndex') ?? 0)
@@ -65,8 +50,14 @@ function App() {
         <Box component='img' sx={{ height: '100%' }} src={AppIcon} alt='app icon' />
       </Box>
 
-      <Box component='main'>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Grid2
+        container
+        flexDirection='column'
+        alignItems='center'
+        width='1080px'
+        data-id='body-container'
+      >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }} data-id='tabs'>
           <Tabs
             value={currentTabIndex}
             variant='scrollable'
@@ -80,12 +71,13 @@ function App() {
           </Tabs>
         </Box>
 
-        {pages.map(({ name, component }, index) => (
-          <TabBody key={name} value={currentTabIndex} index={index}>
-            {component}
-          </TabBody>
-        ))}
-      </Box>
+        <Box sx={{ mt: 2 }}>
+          {pages.map(
+            ({ name, component }, index) =>
+              currentTabIndex === index && <Fragment key={name}>{component}</Fragment>
+          )}
+        </Box>
+      </Grid2>
     </Box>
   )
 }
