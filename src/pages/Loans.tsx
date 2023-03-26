@@ -1,10 +1,10 @@
 import { Box, Paper, Stack, Typography } from '@mui/material'
 import Grid2 from '@mui/material/Unstable_Grid2'
 
-import { Loans as LoansType } from '../money-api-types'
+import { Loan } from '../money-api-types'
 
 interface Props {
-  loans: LoansType[] | undefined
+  loans: Loan[] | undefined
 }
 
 export const Loans = ({ loans }: Props) => {

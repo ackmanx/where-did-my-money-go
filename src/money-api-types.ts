@@ -2,11 +2,11 @@ export interface MoneyResponse {
   creditCards: CreditCard[]
   incomes: Incomes[]
   investments: Investments[]
-  loans: Loans[]
+  loans: Loan[]
   misc: Misc[]
   people: People[]
-  subscriptions: Subscriptions[]
-  utilities: Utilities[]
+  subscriptions: Subscription[]
+  utilities: Utility[]
 }
 
 export interface CreditCard {
@@ -31,7 +31,7 @@ export interface Investments {
   notes: string
 }
 
-export interface Loans {
+export interface Loan {
   name: string
   amount: number
   bank: string
@@ -54,13 +54,13 @@ export interface People {
   notes: string
 }
 
-export interface Subscriptions {
+export interface Subscription {
   name: string
   amount: number
   notes: string
 }
 
-export interface Utilities {
+export interface Utility {
   name: string
   amount: number
   website: string

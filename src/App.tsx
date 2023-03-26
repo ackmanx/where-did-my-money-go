@@ -7,6 +7,7 @@ import AppIcon from './app-icon.png'
 import { MoneyResponse } from './money-api-types'
 import { CreditCards } from './pages/CreditCards'
 import { Loans } from './pages/Loans'
+import { Subscriptions } from './pages/Subscriptions'
 import { getQueryParam, setQueryParam } from './utils'
 
 function App() {
@@ -17,7 +18,10 @@ function App() {
     { name: 'Overview', component: <h1>hello overview</h1> },
     { name: 'Loans', component: <Loans loans={moneyData?.loans} /> },
     { name: 'Credit Cards', component: <CreditCards cards={moneyData?.creditCards} /> },
-    { name: 'Subscriptions', component: null },
+    {
+      name: 'Subscriptions',
+      component: <Subscriptions subscriptions={moneyData?.subscriptions} />,
+    },
     { name: 'Utilities', component: null },
     { name: 'People', component: null },
     { name: 'Investment', component: null },
