@@ -1,7 +1,7 @@
 export interface MoneyResponse {
   creditCards: CreditCard[]
-  incomes: Incomes[]
-  investments: Investments[]
+  incomes: Income[]
+  investments: Investment[]
   loans: Loan[]
   misc: Misc[]
   people: People[]
@@ -17,14 +17,14 @@ export interface CreditCard {
   notes: string
 }
 
-export interface Incomes {
+export interface Income {
   name: string
   amount: number
   rate: string
   notes: string
 }
 
-export interface Investments {
+export interface Investment {
   name: string
   type: string
   website: string
