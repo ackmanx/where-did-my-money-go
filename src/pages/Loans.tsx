@@ -13,7 +13,7 @@ export const Loans = ({ loans }: Props) => {
   const websitePrettyRegex = /(https?:\/\/(www.)?)/
 
   return (
-    <Stack spacing={2} width='800px' data-id='loans-page'>
+    <Stack spacing={2} data-id='loans-page'>
       {loans.map((loan) => (
         <Paper key={loan.name} sx={{ p: 2 }}>
           <Grid2 container justifyContent='space-between'>

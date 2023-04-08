@@ -1,9 +1,7 @@
 import { Box, Tab, Tabs } from '@mui/material'
-import Grid2 from '@mui/material/Unstable_Grid2'
 import JSON5 from 'json5'
 import React, { Fragment, SyntheticEvent, useEffect, useState } from 'react'
 
-import AppIcon from './app-icon.png'
 import { MoneyResponse } from './money-api-types'
 import { CreditCards } from './pages/CreditCards'
 import { Loans } from './pages/Loans'
@@ -43,32 +41,10 @@ function App() {
   }
 
   return (
-    <Box component='main' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Box
-        component='header'
-        sx={{
-          height: '50px',
-          padding: '16px',
-        }}
-      >
-        <Box component='img' sx={{ height: '100%' }} src={AppIcon} alt='app icon' />
-      </Box>
-
-      <Grid2
-        container
-        flexDirection='column'
-        alignItems='center'
-        width='1080px'
-        data-id='body-container'
-      >
+    <main>
+      <Box data-id='body-container'>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }} data-id='tabs'>
-          <Tabs
-            value={currentTabIndex}
-            variant='scrollable'
-            scrollButtons='auto'
-            sx={{ maxWidth: '900px' }}
-            onChange={handleChange}
-          >
+          <Tabs value={currentTabIndex} variant='fullWidth' onChange={handleChange}>
             {pages.map(({ name }) => (
               <Tab key={name} label={name} />
             ))}
@@ -81,8 +57,8 @@ function App() {
               currentTabIndex === index && <Fragment key={name}>{component}</Fragment>
           )}
         </Box>
-      </Grid2>
-    </Box>
+      </Box>
+    </main>
   )
 }
 
