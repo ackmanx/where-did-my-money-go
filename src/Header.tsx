@@ -9,6 +9,6 @@ export const Header = () => (
       textAlign: 'center',
     }}
   >
-    <img src={AppIcon} style={{ height: '100%' }} alt='app-icon' />
+    <img src={AppIcon} style={{ height: '100%', maxWidth: '100vw' }} alt='app-icon' />
   </header>
 )
