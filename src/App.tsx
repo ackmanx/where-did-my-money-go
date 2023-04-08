@@ -1,7 +1,7 @@
 import JSON5 from 'json5'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 
-import AppIcon from './app-icon.png'
+import { Header } from './Header'
 import { MoneyResponse } from './money-api-types'
 import { getQueryParam, setQueryParam } from './utils'
 
@@ -42,9 +42,7 @@ function App() {
 
   return (
     <>
-      <header style={{ height: '100px', textAlign: 'center' }}>
-        <img src={AppIcon} style={{ height: '100%' }} alt='app-icon' />
-      </header>
+      <Header />
       <main>
         <div style={{ borderBottom: '8px', borderColor: 'divider' }} data-id='tabs'>
           {/*<Tabs value={currentTabIndex} variant='fullWidth' onChange={handleChange}>*/}
