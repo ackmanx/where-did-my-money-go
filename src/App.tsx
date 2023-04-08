@@ -1,12 +1,12 @@
 import JSON5 from 'json5'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Header } from './Header'
 import { MoneyResponse } from './money-api-types'
-import { getQueryParam, setQueryParam } from './utils'
+import { Overview } from './pages/Overview'
 
 function App() {
-  const [currentTabIndex, setCurrentTabIndex] = useState(getQueryParam('tabIndex') ?? 0)
+  // const [currentTabIndex, setCurrentTabIndex] = useState(getQueryParam('tabIndex') ?? 0)
   const [moneyData, setMoneyData] = useState<MoneyResponse>()
 
   // const pages = [
@@ -35,29 +35,21 @@ function App() {
     getJson()
   }, [])
 
-  const handleChange = (event: SyntheticEvent, newTabIndex: number) => {
-    setQueryParam('tabIndex', newTabIndex)
-    setCurrentTabIndex(newTabIndex)
-  }
+  // const handleChange = (event: SyntheticEvent, newTabIndex: number) => {
+  //   setQueryParam('tabIndex', newTabIndex)
+  //   setCurrentTabIndex(newTabIndex)
+  // }
 
   return (
     <>
       <Header />
-      <main>
-        <div style={{ borderBottom: '8px', borderColor: 'divider' }} data-id='tabs'>
-          {/*<Tabs value={currentTabIndex} variant='fullWidth' onChange={handleChange}>*/}
-          {/*  {pages.map(({ name }) => (*/}
-          {/*    <Tab key={name} label={name} />*/}
-          {/*  ))}*/}
-          {/*</Tabs>*/}
-        </div>
-        <div style={{ marginTop: '16px' }}>
-          {/*{pages.map(*/}
-          {/*  ({ name, component }, index) =>*/}
-          {/*    currentTabIndex === index && <Fragment key={name}>{component}</Fragment>*/}
-          {/*)}*/}
-        </div>
-      </main>
+      {moneyData && (
+        <main>
+          <div style={{ marginTop: '16px' }}>
+            <Overview moneyData={moneyData} />
+          </div>
+        </main>
+      )}
     </>
   )
 }

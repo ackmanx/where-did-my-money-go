@@ -1,13 +1,9 @@
-import { Income, Loan, Misc, Subscription, Utility } from '../money-api-types'
+import { MoneyResponse } from '../money-api-types'
 
 interface Props {
-  incomes: Income[]
-  loans: Loan[]
-  subscriptions: Subscription[]
-  utilities: Utility[]
-  misc: Misc[]
+  moneyData: MoneyResponse
 }
 
-export const Overview = ({}: Props) => {
+export const Overview = ({ moneyData }: Props) => {
   return <div>something overview</div>
 }
