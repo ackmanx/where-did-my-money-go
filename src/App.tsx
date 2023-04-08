@@ -3,9 +3,7 @@ import JSON5 from 'json5'
 import React, { Fragment, SyntheticEvent, useEffect, useState } from 'react'
 
 import { MoneyResponse } from './money-api-types'
-import { CreditCards } from './pages/CreditCards'
 import { Loans } from './pages/Loans'
-import { Subscriptions } from './pages/Subscriptions'
 import { getQueryParam, setQueryParam } from './utils'
 
 function App() {
@@ -14,16 +12,19 @@ function App() {
 
   const pages = [
     { name: 'Overview', component: <h1>hello overview</h1> },
-    { name: 'Loans', component: <Loans loans={moneyData?.loans} /> },
-    { name: 'Credit Cards', component: <CreditCards cards={moneyData?.creditCards} /> },
-    {
-      name: 'Subscriptions',
-      component: <Subscriptions subscriptions={moneyData?.subscriptions} />,
-    },
-    { name: 'Utilities', component: null },
-    { name: 'People', component: null },
-    { name: 'Investment', component: null },
-    { name: 'Misc', component: null },
+    { name: 'Debt', component: <Loans loans={moneyData?.loans} /> },
+    // { name: 'Loans', component: <Loans loans={moneyData?.loans} /> },
+    // { name: 'Credit Cards', component: <CreditCards cards={moneyData?.creditCards} /> },
+    // { name: 'Healthcare', component: null },
+    // { name: 'People', component: null },
+    { name: 'Ugh', component: null },
+    // {
+    //   name: 'Subscriptions',
+    //   component: <Subscriptions subscriptions={moneyData?.subscriptions} />,
+    // },
+    // { name: 'Utilities', component: null },
+    // { name: 'Investment', component: null },
+    // { name: 'Misc', component: null },
   ]
 
   useEffect(() => {
