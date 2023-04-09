@@ -7,6 +7,7 @@ export interface MoneyResponse {
   people: People[]
   subscriptions: Subscription[]
   utilities: Utility[]
+  healthcare: Healthcare[]
 }
 
 export interface CreditCard {
@@ -64,5 +65,11 @@ export interface Utility {
   name: string
   amount: number
   website: string
+  notes: string
+}
+
+export interface Healthcare {
+  name: string
+  amount: number
   notes: string
 }
