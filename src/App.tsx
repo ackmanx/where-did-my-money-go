@@ -43,6 +43,7 @@ function App() {
   return (
     <>
       <Header />
+
       {moneyData && (
         <main>
           <div style={{ marginTop: '16px' }}>

@@ -4,6 +4,9 @@
 
 body {
   margin-bottom: 50px;
-  /*font-family: Rubik Pixels;*/
-  /*font-family: 'Zen Kurenaido';*/
+  font-family: 'Zen Kurenaido', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  font-family: Rubik Pixels, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
