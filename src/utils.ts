@@ -8,3 +8,7 @@ export const setQueryParam = (queryParam: string, value: number) => {
   url.searchParams.set(queryParam, String(value))
   window.history.pushState({}, '', url)
 }
+
+export const formatMoney = (amount: number) => {
+  return `\$${amount.toLocaleString()}`
+}

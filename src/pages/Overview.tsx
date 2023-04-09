@@ -1,4 +1,5 @@
 import { MoneyResponse } from '../money-api-types'
+import { formatMoney } from '../utils'
 
 interface Props {
   moneyData: MoneyResponse
@@ -14,8 +15,8 @@ export const Overview = ({ moneyData }: Props) => {
 
       <h3>Incomes</h3>
       {moneyData.incomes.map((income) => (
-        <p>
-          {income.name}: ${income.amount.toLocaleString()}
+        <p key={income.name}>
+          {income.name}: {formatMoney(income.amount)}
         </p>
       ))}
 
