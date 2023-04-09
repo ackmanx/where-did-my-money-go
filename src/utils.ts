@@ -12,3 +12,5 @@ export const setQueryParam = (queryParam: string, value: number) => {
 export const formatMoney = (amount: number) => {
   return `\$${amount.toLocaleString()}`
 }
+
+export const sumAmounts = (arr: any[]) => arr.reduce((acc, current) => acc + current.amount, 0)
