@@ -1,3 +1,4 @@
+import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../TwoColumn'
 import { MoneyResponse } from '../money-api-types'
 import { formatMoney, sumAmounts } from '../utils'
 
@@ -18,16 +19,16 @@ export const Overview = ({ moneyData }: Props) => {
   return (
     <div>
       <h2>Overview</h2>
-      <div>
-        <p>Income: {formatMoney(totalIncomes)}</p>
-        <p>Expenses: {formatMoney(totalExpenses)}</p>
-        <p>
-          <i>Monthly Leftovers: {formatMoney(totalIncomes - totalExpenses)}</i>
-        </p>
-      </div>
+      <TwoColumn>
+        <TwoColumnLeft>Income: {formatMoney(totalIncomes)}</TwoColumnLeft>
+        <TwoColumnRight>Expenses: {formatMoney(totalExpenses)}</TwoColumnRight>
+      </TwoColumn>
+      <p>
+        <i>Monthly Leftovers: {formatMoney(totalIncomes - totalExpenses)}</i>
+      </p>
 
-      <div style={{ display: 'flex' }}>
-        <div style={{ width: '50%' }}>
+      <TwoColumn>
+        <TwoColumnLeft>
           <h3>Incomes</h3>
           {moneyData.incomes.map((income) => (
             <p key={income.name}>
@@ -37,9 +38,8 @@ export const Overview = ({ moneyData }: Props) => {
           <p>
             <i>Total: {formatMoney(totalIncomes)}</i>
           </p>
-        </div>
-
-        <div>
+        </TwoColumnLeft>
+        <TwoColumnRight>
           <h3>Expenses</h3>
           <p>Loans: {formatMoney(loans)}</p>
           <p>Misc: {formatMoney(misc)}</p>
@@ -49,8 +49,8 @@ export const Overview = ({ moneyData }: Props) => {
           <p>
             <i>Total: {formatMoney(totalExpenses)}</i>
           </p>
-        </div>
-      </div>
+        </TwoColumnRight>
+      </TwoColumn>
     </div>
   )
 }
