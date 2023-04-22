@@ -1,5 +1,5 @@
+import { SkullDivider } from '../SkullDivider'
 import { Loan } from '../money-api-types'
-import SkullDivider from '../skull-divider.png'
 
 interface Props {
   loans: Loan[] | undefined
@@ -9,8 +9,6 @@ export const Loans = ({ loans }: Props) => {
   if (!loans) return null
 
   const websitePrettyRegex = /(https?:\/\/(www.)?)/
-
-  console.log(777, loans)
 
   return (
     <section>
@@ -41,11 +39,7 @@ export const Loans = ({ loans }: Props) => {
               )}
               {loan.notes && <div>{loan.notes}</div>}
             </div>
-            <div style={{ textAlign: 'center', margin: '16px 0' }}>
-              <img src={SkullDivider} style={{ width: '14px' }} alt={'divider'} />
-              <img src={SkullDivider} style={{ width: '14px' }} alt={'divider'} />
-              <img src={SkullDivider} style={{ width: '14px' }} alt={'divider'} />
-            </div>
+            <SkullDivider />
           </article>
         )
       })}

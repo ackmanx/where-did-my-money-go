@@ -23,9 +23,9 @@ export const Overview = ({ moneyData }: Props) => {
         <TwoColumnLeft>Income: {formatMoney(totalIncomes)}</TwoColumnLeft>
         <TwoColumnRight>Expenses: {formatMoney(totalExpenses)}</TwoColumnRight>
       </TwoColumn>
-      <p>
+      <div style={{ margin: '16px 0 32px 0' }}>
         <i>Monthly Leftovers: {formatMoney(totalIncomes - totalExpenses)}</i>
-      </p>
+      </div>
 
       <TwoColumn>
         <TwoColumnLeft>
