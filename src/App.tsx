@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Header } from './Header'
 import { MoneyResponse } from './money-api-types'
+import { Loans } from './pages/Loans'
 import { Overview } from './pages/Overview'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       {moneyData && (
         <main style={{ margin: '16px' }}>
           <Overview moneyData={moneyData} />
+          <Loans loans={moneyData.loans} />
         </main>
       )}
     </>

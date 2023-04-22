@@ -17,7 +17,7 @@ export const Overview = ({ moneyData }: Props) => {
   const totalExpenses = loans + subscriptions + utilities + healthcare + misc
 
   return (
-    <div>
+    <section>
       <h2>Overview</h2>
       <TwoColumn>
         <TwoColumnLeft>Income: {formatMoney(totalIncomes)}</TwoColumnLeft>
@@ -51,6 +51,6 @@ export const Overview = ({ moneyData }: Props) => {
           </p>
         </TwoColumnRight>
       </TwoColumn>
-    </div>
+    </section>
   )
 }
