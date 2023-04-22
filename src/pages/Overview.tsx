@@ -42,10 +42,10 @@ export const Overview = ({ moneyData }: Props) => {
         <div>
           <h3>Expenses</h3>
           <p>Loans: {formatMoney(loans)}</p>
-          <p>Subscriptions: {formatMoney(subscriptions)}</p>
+          <p>Misc: {formatMoney(misc)}</p>
           <p>Utilities: {formatMoney(utilities)}</p>
           <p>Healthcare: {formatMoney(healthcare)}</p>
-          <p>Misc: {formatMoney(misc)}</p>
+          <p>Subscriptions: {formatMoney(subscriptions)}</p>
           <p>
             <i>Total: {formatMoney(totalExpenses)}</i>
           </p>
