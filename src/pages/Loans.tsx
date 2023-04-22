@@ -18,21 +18,33 @@ export const Loans = ({ loans }: Props) => {
       {loans.map((loan) => {
         return (
           <article>
-            <h3>{loan.bank}</h3>
-            <p>{loan.name}</p>
-            <p>{loan.amount}/mo</p>
-            <p>{loan.apr}%</p>
-            <p>{loan.creditReportName}</p>
-            <p>
-              <a href={loan.website} target='_blank'>
-                {loan.website.replace(websitePrettyRegex, '')}
-              </a>
-            </p>
-            <p>{loan.notes}</p>
-            <div style={{ textAlign: 'center' }}>
-              <img src={SkullDivider} style={{ width: '18px' }} alt={'divider'} />
-              <img src={SkullDivider} style={{ width: '18px' }} alt={'divider'} />
-              <img src={SkullDivider} style={{ width: '18px' }} alt={'divider'} />
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div>
+                  <h3>{loan.bank}</h3>
+                  <div>{loan.name}</div>
+                </div>
+                <div>
+                  <div style={{ textAlign: 'right' }}>
+                    ${Number(loan.amount).toLocaleString()}/mo
+                  </div>
+                  <div style={{ textAlign: 'right' }}>{loan.apr}%</div>
+                </div>
+              </div>
+              {loan.creditReportName && <div>{loan.creditReportName}</div>}
+              {loan.website && (
+                <div>
+                  <a href={loan.website} target='_blank'>
+                    {loan.website.replace(websitePrettyRegex, '')}
+                  </a>
+                </div>
+              )}
+              {loan.notes && <div>{loan.notes}</div>}
+            </div>
+            <div style={{ textAlign: 'center', margin: '16px 0' }}>
+              <img src={SkullDivider} style={{ width: '14px' }} alt={'divider'} />
+              <img src={SkullDivider} style={{ width: '14px' }} alt={'divider'} />
+              <img src={SkullDivider} style={{ width: '14px' }} alt={'divider'} />
             </div>
           </article>
         )
