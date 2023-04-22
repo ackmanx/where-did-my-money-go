@@ -9,6 +9,11 @@ export const Header = () => (
       textAlign: 'center',
     }}
   >
-    <img src={AppIcon} style={{ maxWidth: '100%' }} alt='app-icon' />
+    <a
+      href='https://github.com/ackmanx/ackmanx.github.io/blob/main/json/money.json5'
+      target='_blank'
+    >
+      <img src={AppIcon} style={{ maxWidth: '100%' }} alt='app-icon' />
+    </a>
   </header>
 )
