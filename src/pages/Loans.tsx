@@ -6,6 +6,12 @@ interface Props {
   loans: Loan[] | undefined
 }
 
+function generateGithubLink(bank: string) {
+  return `https://github.com/search?q=repo%3Aackmanx%2Fackmanx.github.io+${encodeURI(
+    bank
+  )}&type=code}`
+}
+
 export const Loans = ({ loans }: Props) => {
   if (!loans) return null
 
@@ -16,7 +22,11 @@ export const Loans = ({ loans }: Props) => {
       <h2>Loans</h2>
       {loans.map((loan) => (
         <article>
-          <h3>{loan.bank}</h3>
+          <h3>
+            <a href={generateGithubLink(loan.bank)} style={{ textDecoration: 'none' }}>
+              {loan.bank}
+            </a>
+          </h3>
           <TwoColumn>
             <TwoColumnLeft isWide>
               <div>
