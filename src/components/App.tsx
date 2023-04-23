@@ -1,10 +1,10 @@
 import JSON5 from 'json5'
 import React, { useEffect, useState } from 'react'
 
+import { MoneyResponse } from '../money-api-types'
+import { Loans } from '../pages/Loans'
+import { Overview } from '../pages/Overview'
 import { Header } from './Header'
-import { MoneyResponse } from './money-api-types'
-import { Loans } from './pages/Loans'
-import { Overview } from './pages/Overview'
 
 function App() {
   const [moneyData, setMoneyData] = useState<MoneyResponse>()

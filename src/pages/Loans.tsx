@@ -1,5 +1,5 @@
-import { SkullDivider } from '../SkullDivider'
-import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../TwoColumn'
+import { SkullDivider } from '../components/SkullDivider'
+import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../components/TwoColumn'
 import { Loan } from '../money-api-types'
 
 interface Props {

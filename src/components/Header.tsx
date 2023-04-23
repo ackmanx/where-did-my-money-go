@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AppIcon from './app-icon.png'
+import AppIcon from '../app-icon.png'
 
 export const Header = () => (
   <header

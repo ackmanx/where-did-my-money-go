@@ -1,4 +1,4 @@
-import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../TwoColumn'
+import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../components/TwoColumn'
 import { MoneyResponse } from '../money-api-types'
 import { formatMoney, sumAmounts } from '../utils'
 
