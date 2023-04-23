@@ -1,4 +1,4 @@
-import SkullDividerImage from '../skull-divider.png'
+import SkullDividerImage from '../images/skull-divider.png'
 
 export const SkullDivider = () => (
   <div style={{ textAlign: 'center', margin: '16px 0' }}>
