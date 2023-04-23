@@ -38,7 +38,12 @@ export const Loans = ({ loans }: Props) => {
               </TwoColumnRight>
             </TwoColumn>
 
-            {loan.notes && <div>{loan.notes}</div>}
+            {loan.notes && (
+              <div>
+                <h4>Notes</h4>
+                <div>{loan.notes}</div>
+              </div>
+            )}
 
             <SkullDivider />
           </article>

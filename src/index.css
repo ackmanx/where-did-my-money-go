@@ -8,10 +8,21 @@ body {
 }
 
 h2 {
+  font-size: 1.75em;
   font-family: "Rubik Glitch", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 
-h3 {
+h3, h4 {
   margin: 0;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-style: italic;
+  font-size: .9em;
+  padding-top: 8px;
 }
