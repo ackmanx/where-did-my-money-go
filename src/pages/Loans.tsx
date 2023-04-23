@@ -23,7 +23,6 @@ export const Loans = ({ loans }: Props) => {
                 <div>
                   <div>{loan.name}</div>
                 </div>
-                {loan.creditReportName && <div>{loan.creditReportName}</div>}
                 {loan.website && (
                   <div>
                     <a href={loan.website} target='_blank'>
@@ -38,10 +37,11 @@ export const Loans = ({ loans }: Props) => {
               </TwoColumnRight>
             </TwoColumn>
 
-            {loan.notes && (
+            {(loan.notes || loan.creditReportName) && (
               <div>
                 <h4>Notes</h4>
-                <div>{loan.notes}</div>
+                {loan.creditReportName && <div>Credit Report: {loan.creditReportName}</div>}
+                {loan.notes && <div>{loan.notes}</div>}
               </div>
             )}
 
