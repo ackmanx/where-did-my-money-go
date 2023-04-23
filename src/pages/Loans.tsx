@@ -14,53 +14,39 @@ export const Loans = ({ loans }: Props) => {
   return (
     <section>
       <h2>Loans</h2>
-      {loans.map((loan) => {
-        return (
-          <article>
-            <h3>{loan.bank}</h3>
-            <TwoColumn>
-              <TwoColumnLeft isWide>
-                <div>
-                  <div>{loan.name}</div>
-                </div>
-                {loan.website && (
-                  <div>
-                    <a href={loan.website} target='_blank'>
-                      {loan.website.replace(websitePrettyRegex, '')}
-                    </a>
-                  </div>
-                )}
-              </TwoColumnLeft>
-              <TwoColumnRight>
-                <div style={{ textAlign: 'right' }}>${Number(loan.amount).toLocaleString()}/mo</div>
-                <div style={{ textAlign: 'right' }}>{loan.apr}%</div>
-              </TwoColumnRight>
-            </TwoColumn>
-
-            {(loan.notes || loan.creditReportName) && (
+      {loans.map((loan) => (
+        <article>
+          <h3>{loan.bank}</h3>
+          <TwoColumn>
+            <TwoColumnLeft isWide>
               <div>
-                <h4>Notes</h4>
-                {loan.creditReportName && <div>Credit Report: {loan.creditReportName}</div>}
-                {loan.notes && <div>{loan.notes}</div>}
+                <div>{loan.name}</div>
               </div>
-            )}
+              {loan.website && (
+                <div>
+                  <a href={loan.website} target='_blank'>
+                    {loan.website.replace(websitePrettyRegex, '')}
+                  </a>
+                </div>
+              )}
+            </TwoColumnLeft>
+            <TwoColumnRight>
+              <div style={{ textAlign: 'right' }}>${Number(loan.amount).toLocaleString()}/mo</div>
+              <div style={{ textAlign: 'right' }}>{loan.apr}%</div>
+            </TwoColumnRight>
+          </TwoColumn>
 
-            <SkullDivider />
-          </article>
-        )
-      })}
+          {(loan.notes || loan.creditReportName) && (
+            <div>
+              <h4>Notes</h4>
+              {loan.creditReportName && <div>Credit Report: {loan.creditReportName}</div>}
+              {loan.notes && <div>{loan.notes}</div>}
+            </div>
+          )}
+
+          <SkullDivider />
+        </article>
+      ))}
     </section>
   )
 }
-
-/*
- {
-    "name": "Grouse St Bathroom Remodel",
-    "bank": "GreenSky",
-    "amount": 85,
-    "apr": 4.99,
-    "creditReportName": "",
-    "website": "http://www.greenskyonline.com",
-    "notes": "Through Your Home Improvement company"
-}
- */
