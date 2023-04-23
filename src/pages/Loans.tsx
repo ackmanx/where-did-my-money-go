@@ -1,15 +1,10 @@
+import { GithubLink } from '../components/GithubLink'
 import { SkullDivider } from '../components/SkullDivider'
 import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../components/TwoColumn'
 import { Loan } from '../money-api-types'
 
 interface Props {
   loans: Loan[] | undefined
-}
-
-function generateGithubLink(bank: string) {
-  return `https://github.com/search?q=repo%3Aackmanx%2Fackmanx.github.io+${encodeURI(
-    bank
-  )}&type=code}`
 }
 
 export const Loans = ({ loans }: Props) => {
@@ -23,9 +18,7 @@ export const Loans = ({ loans }: Props) => {
       {loans.map((loan) => (
         <article>
           <h3>
-            <a href={generateGithubLink(loan.bank)} style={{ textDecoration: 'none' }}>
-              {loan.bank}
-            </a>
+            <GithubLink searchTerm={loan.bank} />
           </h3>
           <TwoColumn>
             <TwoColumnLeft isWide>
