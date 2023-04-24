@@ -17,7 +17,7 @@ export const Header = () => (
         <img src={AppIcon} style={{ maxWidth: '100%' }} alt='app-icon' />
       </a>
     </header>
-    <nav>
+    <nav style={{ position: 'sticky', top: '0px', backgroundColor: 'white' }}>
       <ul style={{ display: 'flex', margin: '0 16px' }}>
         <NavItem>O</NavItem>
         <NavItem>L</NavItem>
