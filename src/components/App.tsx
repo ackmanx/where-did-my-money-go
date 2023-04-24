@@ -2,6 +2,7 @@ import JSON5 from 'json5'
 import React, { useEffect, useState } from 'react'
 
 import { MoneyResponse } from '../money-api-types'
+import { CreditCards } from '../pages/CreditCards'
 import { Loans } from '../pages/Loans'
 import { Overview } from '../pages/Overview'
 import { Subscriptions } from '../pages/Subscriptions'
@@ -28,6 +29,7 @@ function App() {
           <Overview moneyData={moneyData} />
           <Loans loans={moneyData.loans} />
           <Subscriptions subscriptions={moneyData.subscriptions} />
+          <CreditCards cards={moneyData.creditCards} />
         </main>
       )}
     </>
