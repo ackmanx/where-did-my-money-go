@@ -30,3 +30,12 @@ h4 {
 a {
   color: black;
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
