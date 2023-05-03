@@ -1,3 +1,4 @@
+import { GithubLink } from '../components/GithubLink'
 import { TwoColumn, TwoColumnLeft, TwoColumnRight } from '../components/TwoColumn'
 import { MoneyResponse } from '../money-api-types'
 import { formatMoney, sumAmounts } from '../utils'
@@ -32,7 +33,9 @@ export const Overview = ({ moneyData }: Props) => {
           <h3>Incomes</h3>
           {moneyData.incomes.map((income) => (
             <p key={income.name}>
-              {income.name}: {formatMoney(income.amount)}
+              <GithubLink searchTerm='incomes'>
+                {income.name}: {formatMoney(income.amount)}
+              </GithubLink>
             </p>
           ))}
           <p>
@@ -41,11 +44,23 @@ export const Overview = ({ moneyData }: Props) => {
         </TwoColumnLeft>
         <TwoColumnRight>
           <h3>Expenses</h3>
-          <p>Loans: {formatMoney(loans)}</p>
-          <p>Misc: {formatMoney(misc)}</p>
-          <p>Utilities: {formatMoney(utilities)}</p>
-          <p>Healthcare: {formatMoney(healthcare)}</p>
-          <p>Subscriptions: {formatMoney(subscriptions)}</p>
+          <p>
+            <GithubLink searchTerm='loans'>Loans: {formatMoney(loans)}</GithubLink>
+          </p>
+          <p>
+            <GithubLink searchTerm='misc'>Misc: {formatMoney(misc)}</GithubLink>
+          </p>
+          <p>
+            <GithubLink searchTerm='utilities'>Utilities: {formatMoney(utilities)}</GithubLink>
+          </p>
+          <p>
+            <GithubLink searchTerm='healthcare'>Healthcare: {formatMoney(healthcare)}</GithubLink>
+          </p>
+          <p>
+            <GithubLink searchTerm='subscriptions'>
+              Subscriptions: {formatMoney(subscriptions)}
+            </GithubLink>
+          </p>
           <p>
             <i>Total: {formatMoney(totalExpenses)}</i>
           </p>

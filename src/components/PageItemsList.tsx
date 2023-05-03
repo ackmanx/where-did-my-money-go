@@ -13,7 +13,7 @@ export const PageItemsList = ({ list }: Props) => {
         <li style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3>
-              <GithubLink searchTerm={item.name} />
+              <GithubLink searchTerm={item.name}>{item.name}</GithubLink>
             </h3>
             {item.amount && (
               <div style={{ textAlign: 'right' }}>${Number(item.amount).toLocaleString()}/mo</div>
