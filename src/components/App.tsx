@@ -25,7 +25,7 @@ function App() {
       <Header />
 
       {moneyData && (
-        <main style={{ margin: '16px' }}>
+        <main style={{ margin: '24px' }}>
           <Overview moneyData={moneyData} />
           <Loans loans={moneyData.loans} />
           <Subscriptions subscriptions={moneyData.subscriptions} />

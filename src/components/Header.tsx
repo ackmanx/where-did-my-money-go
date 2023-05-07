@@ -18,7 +18,7 @@ export const Header = () => (
       </a>
     </header>
     <nav style={{ position: 'sticky', top: '0px', backgroundColor: 'white' }}>
-      <ul style={{ display: 'flex', margin: '0 16px' }}>
+      <ul style={{ display: 'flex', margin: '0' }}>
         <NavItem>O</NavItem>
         <NavItem>L</NavItem>
         <NavItem>S</NavItem>
