@@ -10,66 +10,53 @@ export interface MoneyResponse {
   healthcare: Healthcare[]
 }
 
-export interface CreditCard {
+export interface BaseItem {
   name: string
+  notes: string
+}
+
+export interface CreditCard extends BaseItem {
   apr: number
   creditReportName: string
   website: string
-  notes: string
 }
 
-export interface Income {
-  name: string
+export interface Income extends BaseItem {
   amount: number
   rate: string
-  notes: string
 }
 
-export interface Investment {
-  name: string
+export interface Investment extends BaseItem {
   type: string
   website: string
-  notes: string
 }
 
-export interface Loan {
-  name: string
+export interface Loan extends BaseItem {
   amount: number
   bank: string
   apr: number
   creditReportName: string
   website: string
-  notes: string
 }
 
-export interface Misc {
-  name: string
+export interface Misc extends BaseItem {
   amount: number
-  notes: string
 }
 
-export interface People {
-  name: string
+export interface People extends BaseItem {
   amount: number
   direction: string
-  notes: string
 }
 
-export interface Subscription {
-  name: string
+export interface Subscription extends BaseItem {
   amount: number
-  notes: string
 }
 
-export interface Utility {
-  name: string
+export interface Utility extends BaseItem {
   amount: number
   website: string
-  notes: string
 }
 
-export interface Healthcare {
-  name: string
+export interface Healthcare extends BaseItem {
   amount: number
-  notes: string
 }

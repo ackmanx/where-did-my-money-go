@@ -1,7 +1,8 @@
+import { BaseItem } from '../money-api-types'
 import { GithubLink } from './GithubLink'
 
 interface Props {
-  list: any[]
+  list: BaseItem[]
 }
 
 export const PageItemsList = ({ list }: Props) => {
@@ -10,12 +11,14 @@ export const PageItemsList = ({ list }: Props) => {
   return (
     <ul>
       {list.map((item) => (
-        <li style={{ marginBottom: '16px' }}>
+        <li key={item.name} style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3>
               <GithubLink searchTerm={item.name}>{item.name}</GithubLink>
             </h3>
+            {/* @ts-expect-error */}
             {item.amount && (
+              // @ts-expect-error
               <div style={{ textAlign: 'right' }}>${Number(item.amount).toLocaleString()}/mo</div>
             )}
           </div>
